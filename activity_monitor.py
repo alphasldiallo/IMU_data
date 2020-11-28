@@ -11,8 +11,6 @@ print(IMU.whoami)
 data = []
   
 while(len(data)<1000):
-    #print("Temperature is "+str(IMU.get_temp))
-    #print(str(IMU.get_accel_data(g=True)["x"]))
     acc =IMU.get_accel_data(g=True)
     gyro = IMU.get_gyro_data()
     tmp_dict = {"acc_x":acc["x"], "acc_y":acc["y"], "acc_z":acc["z"], "gyro_x":gyro["x"], "gyro_y":gyro["y"], "gyro_z":gyro["z"] }
