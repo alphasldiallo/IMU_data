@@ -22,7 +22,7 @@ while(len(data)<SAMPLES):
     time.sleep(0.1)
     
     
-with open("hadoken.csv", mode="w") as f:
+with open("idle.csv", mode="w") as f:
     w = csv.DictWriter(f, data[0].keys())
     w.writeheader()
     for i in data:
