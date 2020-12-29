@@ -4,6 +4,7 @@ import busio
 import time
 import csv
 
+
 i2c = busio.I2C(SCL, SDA)
 IMU=MPU6050(i2c)
 print(IMU.whoami)

@@ -40,4 +40,5 @@ class MySocket:
 if __name__ == '__main__':
     s=MySocket()
     s.connect(host="127.0.0.1", port=1223)
-    s.mysend([i for i in range(100)])
+    for i in range(5):
+        s.mysend([i])
