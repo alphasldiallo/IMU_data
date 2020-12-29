@@ -15,14 +15,12 @@ class MySocket:
         self.sock.connect((host, port))
         print("Connection made on {}:{}".format(host, port))
 
-    def mysend(self, msg):
-        totalsent = 0
-        while totalsent < len(msg):
-            sent = self.sock.send(bytes(str(msg[totalsent:]), encoding="utf8"))
-            print("Message sent: {}".format(msg[totalsent:]))
-            if sent == 0:
-                raise RuntimeError("socket connection broken")
-            totalsent = totalsent + sent
+    def send(self, msg):
+        print(len(msg))
+        sent = self.sock.send(bytes(str(msg), encoding="utf8"))
+#            print("Message sent: {}".format(msg[totalsent:]))
+        if sent == 0:
+            raise RuntimeError("socket connection broken")
 
     def myreceive(self):
         chunks = []
@@ -35,6 +33,9 @@ class MySocket:
             chunks.append(chunk)
             bytes_recd = bytes_recd + len(chunk)
         return b''.join(chunks)
+    
+    def close(self):
+        self.sock.close()
 
 
 if __name__ == '__main__':
